@@ -1,5 +1,15 @@
 # Changelog
 
+**August 14, 2019**
+
+* A new version of `getRegistrantsByBrokerage` is now available on the production endpoint, more details [here](https://spac.io/docs/api/#brokerage-leads-v2)
+
+**August 13, 2019**
+
+* `getOHSessions` is now available on the beta endpoint
+* [BETA] Added the `autoEmailStatus` field
+* [BETA] Added the `note` field
+
 **June 12, 2019**
 
 * `getRegistrantsByTeam` is now available on the beta endpoint
