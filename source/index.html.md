@@ -1,4 +1,5 @@
 ---
+# rvm use ruby-2.6.3
 title: Spacio API Reference
 
 language_tabs:
@@ -19,8 +20,8 @@ search: true
 
 The following endpoints are currently available for the production and beta Spacio API and call rates are currently limited to 12,000 hourly by default on key creation. If you require this cap to be increased or have any other inquiries regarding the API, please reach out to us at support[at]spac.io 
 
-* **Production:** https://ws.spac.io/api/v1/
-* **Beta:** https://ws.spac.io/api-stage/v1/
+* **Production:** `https://ws.spac.io/api/v1/`, `https://ws.spac.io/api/v2/` (limited availability)
+* **Beta:** `https://ws.spac.io/api-stage/v1/`
 
 # Properties
 
@@ -80,8 +81,8 @@ This endpoint retrieves all properties associated to the agent.
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-ukey | Agent UKEY 
+`apikey` | Assigned API key
+`ukey` | Agent UKEY 
 
 ## Single Property
 
@@ -122,8 +123,8 @@ This endpoint retrieves a property associated to the `sid` (Spacio property ID).
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-sid | Spacio property ID 
+`apikey` | Assigned API key
+`sid` | Spacio property ID 
 
 ## [BETA] Open House Sessions
 
@@ -175,9 +176,9 @@ This endpoint retrieves a list of open house sessions for a specified property.
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-sid | Spacio property ID 
-page | Page number
+`apikey` | Assigned API key
+`sid` | Spacio property ID 
+`page` | Page number
 
 # Leads
 
@@ -268,9 +269,9 @@ This endpoint retrieves all leads associated to the property.
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-sid | Spacio property ID
-atoken | Agent access token
+`apikey` | Assigned API key
+`sid` | Spacio property ID
+`atoken` | Agent access token
 
 # Access Tokens
 
@@ -303,8 +304,8 @@ This endpoint retrieves an access token for the agent.
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-email | Email for the agent
+`apikey` | Assigned API key
+`email` | Email for the agent
 
 ## Access Token (Brokerage Manager)
 
@@ -334,8 +335,8 @@ This endpoint retrieves an access token for the brokerage manager. Note that bro
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-email | Email for the brokerage manager
+`apikey` | Assigned API key
+`email` | Email for the brokerage manager
 
 # Brokerages
 
@@ -374,7 +375,6 @@ curl "https://ws.spac.io/api/v2/getRegistrantsByBrokerage​"
       "hasAgent": "NO", 
       "hasFinancing": "NO", 
       "isBroker": "NO", 
-      "autoEmailStatus": "Sent to Visitor's Representative. (Opened: Yes)",
       "answersObj": [
         { 
           "question": "Are you working with an agent?", 
@@ -403,7 +403,6 @@ curl "https://ws.spac.io/api/v2/getRegistrantsByBrokerage​"
       "hasAgent": "UNKNOWN", 
       "hasFinancing": "UNKNOWN", 
       "isBroker": "NO", 
-      "autoEmailStatus": "Sent to Visitor's Representative. (Opened: Yes)",
       "answersObj": [], 
       "note": "May be blank like next entry",
       "dateCreated": "2019-02-01 08:33:28",
@@ -419,7 +418,6 @@ curl "https://ws.spac.io/api/v2/getRegistrantsByBrokerage​"
       "hasAgent": "YES", 
       "hasFinancing": "YES", 
       "isBroker": "NO", 
-      "autoEmailStatus": "Not Sent. Has Representation.", 
       "answersObj": [
         { 
           "question": "Are you working with an agent?", 
@@ -458,11 +456,11 @@ This endpoint retrieves a list of leads within the specified date range.
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-bid | Brokerage ID
-startDate | Start date 
-endDate | End date
-page | Page number
+`apikey` | Assigned API key
+`bid` | Brokerage ID
+`startDate` | Start date 
+`endDate` | End date
+`page` | Page number
 
 <aside class="notice">
 Note that the <code>dateCreated</code> may show as an exact timestamp (i.e. <code>2019-05-02 22:00:00</code>) and this is due to defaults in place when adding a visitor manually. Please refer to the tutorial video <a href='https://spac.io/tutorials/#add-visitor' target="_blank" rel="noreferrer">here</a> (https://spac.io/tutorials/#add-visitor) for more details.
@@ -570,10 +568,10 @@ This endpoint retrieves a list of leads within the specified date range.
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-bid | Brokerage ID
-startDate | Start date 
-endDate | End date
+`apikey` | Assigned API key
+`bid` | Brokerage ID
+`startDate` | Start date 
+`endDate` | End date
 
 <aside class="notice">
 Note that the <code>dateCreated</code> may show as an exact timestamp (i.e. <code>2019-05-02 22:00:00</code>) and this is due to defaults in place when adding a visitor manually. Please refer to the tutorial video <a href='https://spac.io/tutorials/#add-visitor' target="_blank" rel="noreferrer">here</a> (https://spac.io/tutorials/#add-visitor) for more details.
@@ -612,8 +610,8 @@ This endpoint retrieves a claimed list of agent emails.
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-bid | Brokerage ID
+`apikey` | Assigned API key
+`bid` | Brokerage ID
 
 ## [BETA] User Activity
 
@@ -655,10 +653,10 @@ This endpoint retrieves a list of agent emails within the specified date range.
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-bid | Brokerage ID
-startDate | Start date 
-endDate | End date
+`apikey` | Assigned API key
+`bid` | Brokerage ID
+`startDate` | Start date 
+`endDate` | End date
 
 `startDate​` and `endDate​` can accept any calendar date in `YYYY-MM-DD` as a valid format. Although not required, times are stored and displayed in UTC so you may want to pad an extra day to the start or end dates to ensure results are complete. For example, if one was to look up active users from Aug. 1st to Aug. 14th, then they may want to set the `startDate​` as 2018-07-31​ and `endDate​` as 2018-08-15​. This extra step can be omitted if it’s being considered or the conversion is already handled in advance. 
 
@@ -714,10 +712,10 @@ This endpoint retrieves a list of open house session counts within the specified
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-bid | Brokerage ID
-startDate | Start date 
-endDate | End date
+`apikey` | Assigned API key
+`bid` | Brokerage ID
+`startDate` | Start date 
+`endDate` | End date
 
 `startDate​` and `endDate​` can accept any calendar date in `YYYY-MM-DD` as a valid format. Although not required, times are stored and displayed in UTC so you may want to pad an extra day to the start or end dates to ensure results are complete. For example, if one was to look up active users from Aug. 1st to Aug. 14th, then they may want to set the `startDate​` as 2018-07-31​ and `endDate​` as 2018-08-15​. This extra step can be omitted if it’s being considered or the conversion is already handled in advance.
 
@@ -752,7 +750,6 @@ curl "https://ws.spac.io/api-stage/v1/getRegistrantsByBrokerage​"
       "hasAgent": "NO", 
       "hasFinancing": "NO", 
       "isBroker": "NO", 
-      "autoEmailStatus": "Sent to Visitor's Representative. (Opened: Yes)",
       "answersObj": [
         { 
           "question": "Are you working with an agent?", 
@@ -781,7 +778,6 @@ curl "https://ws.spac.io/api-stage/v1/getRegistrantsByBrokerage​"
       "hasAgent": "UNKNOWN", 
       "hasFinancing": "UNKNOWN", 
       "isBroker": "NO", 
-      "autoEmailStatus": "Sent to Visitor's Representative. (Opened: Yes)",
       "answersObj": [], 
       "note": "May be blank like next entry",
       "dateCreated": "2019-02-01 08:33:28",
@@ -797,7 +793,6 @@ curl "https://ws.spac.io/api-stage/v1/getRegistrantsByBrokerage​"
       "hasAgent": "YES", 
       "hasFinancing": "YES", 
       "isBroker": "NO", 
-      "autoEmailStatus": "Not Sent. Has Representation.", 
       "answersObj": [
         { 
           "question": "Are you working with an agent?", 
@@ -832,11 +827,11 @@ This endpoint retrieves a list of leads within the specified date range.
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-bid | Brokerage ID
-startDate | Start date 
-endDate | End date
-page | Page number
+`apikey` | Assigned API key
+`bid` | Brokerage ID
+`startDate` | Start date 
+`endDate` | End date
+`page` | Page number
 
 <aside class="notice">
 Note that the <code>dateCreated</code> may show as an exact timestamp (i.e. <code>2019-05-02 22:00:00</code>) and this is due to defaults in place when adding a visitor manually. Please refer to the tutorial video <a href='https://spac.io/tutorials/#add-visitor' target="_blank" rel="noreferrer">here</a> (https://spac.io/tutorials/#add-visitor) for more details.
@@ -874,10 +869,15 @@ curl "https://ws.spac.io/api-stage/v1/getRegistrantsByTeam"
       "name": "John", 
       "email": "jsmith@example.com", 
       "phone": "123-456-7890", 
-      "hasAgent": "NO", 
+      "hasAgent": "YES", 
       "hasFinancing": "NO", 
       "isBroker": "NO", 
-      "autoEmailStatus": "Sent to Visitor's Representative. (Opened: Yes)",
+      "autoEmailStatus": {
+        "sentToVisitor": false,
+        "sentToVisitorRepresentation": true,
+        "opened": true,
+        "details": "Sent to Visitor's Representative. (Opened: Yes)"
+      },
       "answersObj": [
         { 
           "question": "Are you working with an agent?", 
@@ -905,7 +905,12 @@ curl "https://ws.spac.io/api-stage/v1/getRegistrantsByTeam"
       "hasAgent": "UNKNOWN", 
       "hasFinancing": "UNKNOWN", 
       "isBroker": "NO",
-      "autoEmailStatus": "Sent to Visitor's Representative. (Opened: Yes)", 
+      "autoEmailStatus": {
+        "sentToVisitor": true,
+        "sentToVisitorRepresentation": false,
+        "opened": true,
+        "details": "Sent to Visitor. (Opened: Yes)"
+      },
       "answersObj": [], 
       "dateCreated": "2019-02-01 08:33:28",
       "sid": 000002,
@@ -920,7 +925,12 @@ curl "https://ws.spac.io/api-stage/v1/getRegistrantsByTeam"
       "hasAgent": "YES", 
       "hasFinancing": "YES", 
       "isBroker": "NO",
-      "autoEmailStatus": "Not Sent. Has Representation.", 
+      "autoEmailStatus": {
+        "sentToVisitor": false,
+        "sentToVisitorRepresentation": false,
+        "opened": false,
+        "details": "Not Sent. Has Representation."
+      },
       "answersObj": [
         { 
           "question": "Are you working with an agent?", 
@@ -954,11 +964,11 @@ This endpoint retrieves a list of leads within the specified date range.
 
 Parameter | Description
 --------- | -----------
-apikey | Assigned API key
-tid | Team ID
-startDate | Start date 
-endDate | End date
-page | Page number
+`apikey` | Assigned API key
+`tid` | Team ID
+`startDate` | Start date 
+`endDate` | End date
+`page` | Page number
 
 <aside class="notice">
 Note that the <code>dateCreated</code> may show as an exact timestamp (i.e. <code>2019-05-02 22:00:00</code>) and this is due to defaults in place when adding a visitor manually. Please refer to the tutorial video <a href='https://spac.io/tutorials/#add-visitor' target="_blank" rel="noreferrer">here</a> (https://spac.io/tutorials/#add-visitor) for more details.
