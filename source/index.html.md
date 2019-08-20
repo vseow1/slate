@@ -446,11 +446,12 @@ curl "https://ws.spac.io/api/v2/getRegistrantsByBrokerage​"
 We highly recommend that our partners migrate to this endpoint if the previous one (as seen in the next section) is still being utilized!
 </aside>
 
-This endpoint retrieves a list of leads within the specified date range.
+This endpoint retrieves a list of leads within the specified date range. A staging endpoint with more recent updates is also available - please see below.
 
 ### HTTP Request
 
-`POST https://ws.spac.io/api/v2/getRegistrantsByBrokerage​`
+Production: `POST https://ws.spac.io/api/v2/getRegistrantsByBrokerage​`  
+Beta: `POST https://ws.spac.io/api-stage/v1/getRegistrantsByBrokerage​`
 
 ### Query Parameters
 
@@ -716,126 +717,6 @@ Parameter | Description
 `bid` | Brokerage ID
 `startDate` | Start date 
 `endDate` | End date
-
-`startDate​` and `endDate​` can accept any calendar date in `YYYY-MM-DD` as a valid format. Although not required, times are stored and displayed in UTC so you may want to pad an extra day to the start or end dates to ensure results are complete. For example, if one was to look up active users from Aug. 1st to Aug. 14th, then they may want to set the `startDate​` as 2018-07-31​ and `endDate​` as 2018-08-15​. This extra step can be omitted if it’s being considered or the conversion is already handled in advance.
-
-## [BETA] Brokerage Leads
-
-```shell
-curl "https://ws.spac.io/api-stage/v1/getRegistrantsByBrokerage​"
-  -H "apikey:[YOUR KEY HERE]" 
-  -X POST
-  -F 'bid=[BROKERAGE ID]'
-  -F 'startDate=[YYYY-MM-DD]' 
-  -F 'endDate=[YYYY-MM-DD]'
-  -F 'page=[PAGE NUMBER]'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{ 
-  "info": {
-        "resultsOnPage": 100,
-        "totalCount": 123,
-        "pageNumber": 1,
-        "totalPages": 2
-  },
-  "data": [
-    {
-      "id": "5cc84e8a92127d360d20be36",
-      "name": "John", 
-      "email": "jsmith@example.com", 
-      "phone": "123-456-7890", 
-      "hasAgent": "NO", 
-      "hasFinancing": "NO", 
-      "isBroker": "NO", 
-      "answersObj": [
-        { 
-          "question": "Are you working with an agent?", 
-          "answer": "NO"
-        },
-        {
-          "question": "How did you hear about this open house?",
-          "answer": "Other", 
-        },
-        {
-          "question": "Are you mortgage pre-approved?", 
-          "answer": "NO" 
-        }
-      ],
-      "note": "Example note", 
-      "dateCreated": "2019-02-01 09:17:03",
-      "sid": 000001,
-      "plid": "AAA-001",
-      "agentEmail": "agent1@example.com" 
-    }, 
-    { 
-      "id": "5cc8540f92127df51f20be36",
-      "name": "Alex Sanders", 
-      "email": "alexs@example.com", 
-      "phone": "987-654-3210", 
-      "hasAgent": "UNKNOWN", 
-      "hasFinancing": "UNKNOWN", 
-      "isBroker": "NO", 
-      "answersObj": [], 
-      "note": "May be blank like next entry",
-      "dateCreated": "2019-02-01 08:33:28",
-      "sid": 000002,
-      "plid": "BBB-002",
-      "agentEmail": "agent2@example.com"  
-    }, 
-    { 
-      "id": "5cc6f7f292127d1b7d20be36",
-      "name": "Bob Cory", 
-      "email": "bcory@example.com", 
-      "phone": "2223334444", 
-      "hasAgent": "YES", 
-      "hasFinancing": "YES", 
-      "isBroker": "NO", 
-      "answersObj": [
-        { 
-          "question": "Are you working with an agent?", 
-          "answer": "YES"
-        },
-        {
-          "question": "How did you hear about this open house?",
-          "answer": "Social Media", 
-        },
-        {
-          "question": "Are you mortgage pre-approved?", 
-          "answer": "YES" 
-        }
-      ], 
-      "note": "",
-      "dateCreated": "2019-02-01 05:56:52",
-      "sid": 000003,
-      "plid": "CCC-003",
-      "agentEmail": "agent3@example.com"  
-    }
-  ]
-} 
-```
-
-This endpoint retrieves a list of leads within the specified date range.
-
-### HTTP Request
-
-`POST https://ws.spac.io/api-stage/v1/getRegistrantsByBrokerage​`
-
-### Query Parameters
-
-Parameter | Description
---------- | -----------
-`apikey` | Assigned API key
-`bid` | Brokerage ID
-`startDate` | Start date 
-`endDate` | End date
-`page` | Page number
-
-<aside class="notice">
-Note that the <code>dateCreated</code> may show as an exact timestamp (i.e. <code>2019-05-02 22:00:00</code>) and this is due to defaults in place when adding a visitor manually. Please refer to the tutorial video <a href='https://spac.io/tutorials/#add-visitor' target="_blank" rel="noreferrer">here</a> (https://spac.io/tutorials/#add-visitor) for more details.
-</aside>
 
 `startDate​` and `endDate​` can accept any calendar date in `YYYY-MM-DD` as a valid format. Although not required, times are stored and displayed in UTC so you may want to pad an extra day to the start or end dates to ensure results are complete. For example, if one was to look up active users from Aug. 1st to Aug. 14th, then they may want to set the `startDate​` as 2018-07-31​ and `endDate​` as 2018-08-15​. This extra step can be omitted if it’s being considered or the conversion is already handled in advance.
 
